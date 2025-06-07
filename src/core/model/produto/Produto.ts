@@ -7,5 +7,5 @@ export default interface Produto {
     preco: number,
     quantidade : number,
     criado:   Date,
-    vendas:  Venda[]
+    vendas?:  Venda[]
 }
