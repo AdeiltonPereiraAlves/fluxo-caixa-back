@@ -3,6 +3,7 @@ import ProdutoPorta from "../../../core/model/produto/ProdutoPorta";
 import {prisma}from "../prismaDb/prisma";
 
 export default class ProdutoService implements ProdutoPorta{
+ 
    
     async criar(produto: any) {
         console.log(produto, "produto")
@@ -33,6 +34,15 @@ export default class ProdutoService implements ProdutoPorta{
         } catch (error) {
              console.log(error, "erro")
             throw new Error("erro ao criar produto")
+        }
+    }
+    async deletar(id:any){
+        try {
+            const del = await prisma.produto.delete({where:{id}})
+            return del
+        } catch (error) {
+            console.log(error, "erro")
+            throw new Error("erro ao delerar produto")
         }
     }
 }

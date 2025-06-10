@@ -5,6 +5,8 @@ import CriarProduto from "./core/casosDeUso/Produto/CriarProduto";
 import ProdutoController from "./controllers/produtoController/ProdutoController";
 import ListarProdutos from "./core/casosDeUso/Produto/ListarProdutos";
 import ListarProdutosController from "./controllers/produtoController/ListarProdutosController";
+import DeletarProduto from "./core/casosDeUso/Produto/DeletarProduto";
+import DeletarProdutoController from "./controllers/produtoController/DeletarProdutoController";
 const app = express()
 
 app.use(cors())
@@ -31,3 +33,8 @@ new ProdutoController(app, criarProduto)
 const listarProduto = new ListarProdutos(produtoRepositorio)
 
 new ListarProdutosController(app, listarProduto)
+
+
+//deletar produto
+const deletarProduto = new DeletarProduto(produtoRepositorio)
+new DeletarProdutoController(app, deletarProduto)
